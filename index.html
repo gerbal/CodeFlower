@@ -41,6 +41,10 @@ line.link {
   <body>
     <div class="content">
       <div class="container">
+        <form class="form-inline">
+          <fieldset>
+          </fieldset>
+        </form>
         <div id="visualization"></div>
         
         <a href="https://github.com/fzaninotto/CodeFlower"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
@@ -50,6 +54,7 @@ line.link {
     <script type="text/javascript" src="javascripts/d3/d3.geom.js"></script>
     <script type="text/javascript" src="javascripts/d3/d3.layout.js"></script>
     <script type="text/javascript" src="javascripts/CodeFlower.js"></script>
+    <script type="text/javascript" src="javascripts/dataConverter.js"></script>
     <script type="text/javascript">
       var currentCodeFlower;
       var createCodeFlower = function(json) {
@@ -61,11 +66,27 @@ line.link {
         var total = countElements(json);
         w = parseInt(600);
         h = parseInt(600);
-
+        // create a new CodeFlower
         currentCodeFlower = new CodeFlower("#visualization", w, h).update(json);
       };
 
-      d3.json('data/data.json', createCodeFlower);
+      d3.json('data.json', createCodeFlower);
+
+      document.getElementById('project').addEventListener('change', function() {
+        d3.json(this.value, createCodeFlower);
+      });
+    </script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26354577-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
     </script>
   </body>
