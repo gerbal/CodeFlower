@@ -64,10 +64,10 @@ line.link {
         if (currentCodeFlower) currentCodeFlower.cleanup();
         // adapt layout size to the total number of elements
         var total = countElements(json);
-        w = parseInt(600);
-        h = parseInt(600);
+        w = '90%';
+        h = '90%';
         // create a new CodeFlower
-        currentCodeFlower = new CodeFlower("#visualization").update(json);
+        currentCodeFlower = new CodeFlower("#visualization", w, h)).update(json);
       };
 
       d3.json('data.json', createCodeFlower);
