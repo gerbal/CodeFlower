@@ -64,8 +64,8 @@ line.link {
         if (currentCodeFlower) currentCodeFlower.cleanup();
         // adapt layout size to the total number of elements
         var total = countElements(json);
-        w = '90%';
-        h = '90%';
+        w = 600;
+        h = 600;
         // create a new CodeFlower
         currentCodeFlower = new CodeFlower("#visualization", w, h).update(json);
       };
