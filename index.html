@@ -67,7 +67,7 @@ line.link {
         w = parseInt(600);
         h = parseInt(600);
         // create a new CodeFlower
-        currentCodeFlower = new CodeFlower("#visualization", w, h).update(json);
+        currentCodeFlower = new CodeFlower("#visualization").update(json);
       };
 
       d3.json('data.json', createCodeFlower);
