@@ -51,14 +51,6 @@ line.link {
         </form>
         <div id="visualization"></div>
         
-        <form id="jsonInput">
-        <fieldset>
-          <textarea id="jsonData"></textarea>
-          <div class="pull-right">
-            <button type="submit" class="btn btn-primary btn-large">Update</button>
-          </div>
-        </fieldset>
-        </form>
         <a href="https://github.com/fzaninotto/CodeFlower"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
       </div>
     </div>
@@ -82,11 +74,11 @@ line.link {
         currentCodeFlower = new CodeFlower("#visualization", w, h).update(json);
       };
 
-      d3.json('data.json', createCodeFlower);
+      d3.json('data/data.json', createCodeFlower);
 
-      document.getElementById('project').addEventListener('change', function() {
-        d3.json(this.value, createCodeFlower);
-      });
+      // document.getElementById('project').addEventListener('change', function() {
+      //   d3.json(this.value, createCodeFlower);
+      // });
       // document.getElementById('jsonInput').addEventListener('submit', function(e) {
       //   e.preventDefault();
       //   document.getElementById('visualization').scrollIntoView();
